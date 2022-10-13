@@ -4,7 +4,7 @@ class Pessoa:
     def __init__(self,nome,idade):
         self.nome = nome
         self.__idade = idade
-        self.__profissao = "Pedreiro"
+        self.__profissao = "Lixeiro"
         self.__dinheiro = 0
         self.__energia = 20
         self.__saude = 100
@@ -78,15 +78,27 @@ class Pessoa:
         if(trabalho == "Lixeiro"):
             if(energia > 10):
                 for i in range(horasTrabalhadas):
-                    self.setIdade(0.1)
-                    self.setEnergia(-2)
+                    time.sleep(1)
+                    print("Correndo e colocando lixo no caminhão!")
+                    time.sleep(5)
+                    self.setIdade(0.8)
+                    self.setEnergia(-5)
+
                     prob = random.randint(0, 9)
-                    prob1 = random.randint(0, 50)
-                    if(prob1 > 45):
-                        self.demitir()
                     if(prob > 5):
-                        self.setDinheiro(100)
-                        print("Trabalhando")
+                        self.setDinheiro(50)
+                        print("Voce achou um item valioso no lixo +30R$")
+                        time.sleep(5)
+                        self.setDinheiro(20)
+                        print("+20R$ pela hora trabalhada")
+                        time.sleep(1)
+                        dinheiro = self.getDinheiro()
+                        print(f"Dinheiro atual: {dinheiro} ")
+                    else:
+                        print("+20R$ pela hora trabalhada")
+                        dinheiro = self.getDinheiro()
+                        print(f"Dinheiro atual: {dinheiro} ")
+                        
             else:
                 print("Você está cansado, va recuperar energia.")
 
@@ -96,9 +108,9 @@ class Pessoa:
                 for i in range(horasTrabalhadas):
                     time.sleep(1)
                     print("Mendigando...")
-                    time.sleep(3)
+                    time.sleep(4)
                     self.setIdade(0.1)
-                    self.setEnergia(-2)
+                    self.setEnergia(-1)
                     prob = random.randint(0, 9)
                     if(prob > 5):
                         self.setDinheiro(2)
@@ -168,35 +180,48 @@ class Pessoa:
                     self.setIdade(0.1)
                     self.setEnergia(-4)
                     prob = random.randint(0, 50)
-                    prob1 = random.rand(0.3,0.8)
-                    print(f"Você achou {prob} latinhas")
-                        self.setDinheiro(2)
-                        dinheiro = self.getDinheiro()
-                        print("Achei uma moeda +2Reais")
-                        time.sleep(1)
-                        print(f"Dinheiro atual: {dinheiro} ")
+                    prob1 = random.uniform(0.30, 0.60)
+                    print(f"Você achou {prob} latinhas e conseguiu vendelas por {round(prob1,2)}")
+                    rendDinheiro = prob*prob1
+                    self.setDinheiro(rendDinheiro)
+                    dinheiro = self.getDinheiro()
+                    time.sleep(1)
+                    print(f"Dinheiro atual: {round(dinheiro,2)} ")
                         
-                    else:
-                        time.sleep(1)
-                        print("Nada encontrado")
+                else:
+                    time.sleep(1)
+                    print("Nada encontrado")
             else:
                 print("Você está cansado, va recuperar energia.")
 
 
         if(trabalho == "Uber"):
-            if(energia > 10):
+           if(energia > 10):
                 for i in range(horasTrabalhadas):
-                    self.setIdade(0.1)
-                    self.setEnergia(-2)
+                    time.sleep(1)
+                    print("Fazendo corrida...")
+                    time.sleep(8)
+                    self.setIdade(0.4)
+                    self.setEnergia(-1)
                     prob = random.randint(0, 9)
-                    prob1 = random.randint(0, 50)
-                    if(prob1 > 45):
-                        self.demitir()
-                    if(prob > 5):
-                        self.setDinheiro(100)
-                        print("Trabalhando")
-            else:
-                print("Você está cansado, va recuperar energia.")
+                    if(prob > 8):
+                        self.setDinheiro(-(random.randint(20, 30)))
+                        dinheiro = self.getDinheiro()
+                        print("Voce foi assaltado, levaram sua carteira.")
+                        time.sleep(1)
+                        print(f"Dinheiro atual: {dinheiro} ")
+                        
+                    else:
+                        
+                        time.sleep(1)
+                        money = random.randint(5, 30)
+                        self.setDinheiro(money)
+                        dinheiro = self.getDinheiro()
+                        print(f"Corrida finalizada!, +{money}R$")
+                        print(f'Dinheiro atual: {dinheiro} ')
+                        
+                else:
+                    print("Você está cansado, va recuperar energia.")
 
                     
                
@@ -204,3 +229,4 @@ class Pessoa:
     
 joao = Pessoa("Joao",18)
 joao.trabalhar(5)
+        
