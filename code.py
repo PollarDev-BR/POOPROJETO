@@ -86,7 +86,8 @@ class Pessoa:
 
                     prob = random.randint(0, 9)
                     if(prob > 5):
-                        self.setDinheiro(50)
+                        self.setDinheiro(30)
+
                         print("Voce achou um item valioso no lixo +30R$")
                         time.sleep(5)
                         self.setDinheiro(20)
@@ -95,6 +96,7 @@ class Pessoa:
                         dinheiro = self.getDinheiro()
                         print(f"Dinheiro atual: {dinheiro} ")
                     else:
+                        self.setDinheiro(20)
                         print("+20R$ pela hora trabalhada")
                         dinheiro = self.getDinheiro()
                         print(f"Dinheiro atual: {dinheiro} ")
@@ -229,4 +231,4 @@ class Pessoa:
     
 joao = Pessoa("Joao",18)
 joao.trabalhar(5)
-        
+//https://colab.research.google.com/drive/1KxXxKX1OjdV9QPWNToyBWqFQXIFVyYjj?usp=sharing
