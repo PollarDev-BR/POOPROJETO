@@ -237,8 +237,9 @@ class Pessoa:
                         
                 else:
                     print("Você está cansado, va recuperar energia.")
-
                     
+                    
+joao = Pessoa("Joao",18)
                
                 
     
